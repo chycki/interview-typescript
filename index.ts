@@ -21,6 +21,11 @@ const idsPool = [
   "4"
 ];
 
+// PC coded solution to exercise 1:
+
+const result = Array.from(new Set(idsPool));
+console.log(result);
+
 // 2. We have a list airports that are grouped into continents, countries, and states. 
 // Translate the object structure into a single hierarchical structure that allows to go from continent 
 // to country to state level to pull out all airports from that area.
@@ -82,4 +87,34 @@ const airportData: Array<I2020Airport> = [
       state: "Hessen"
   }
 ];
+
+// PC solution for exercise 2
+const groupedData = {};
+airportData.forEach((airport) => {
+  // First check continent
+
+  let dataByCountry = groupedData[airport.continent];
+
+  if (dataByCountry === undefined) {
+    dataByCountry = {};
+    groupedData[airport.continent] = dataByCountry;
+  }
+
+  let dataByState = dataByCountry[airport.country];
+
+  if (dataByState === undefined) {
+    dataByState = {};
+    dataByCountry[airport.country] = dataByState;
+  }
+
+  let airportsForState: Array<string> = dataByState[airport.state];
+  if (airportsForState === undefined) {
+    airportsForState = [];
+    dataByState[airport.state] = airportsForState;
+  }
+  airportsForState.push(airport.airport);
+
+});
+
+console.log(groupedData);
 
