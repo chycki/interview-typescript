@@ -21,7 +21,26 @@ const idsPool = [
   "4"
 ];
 
-// 2. We have a list airports that are grouped into continents, countries, and states. 
+// 2. How would you compare two arrays if they have the same values ?
+function compareValues(arrA: any[], arrB: any[]) {
+  // 
+}
+
+// 3. Consider the following code snippet
+// Implement the setName method which updates "name" property and returns a fresh new object
+class Vendor {
+  
+  constructor(
+    private name: string,
+    private address: string
+  ) {}
+
+  public setName(name: string) {
+    // 
+  }
+}
+
+// 4. We have a list airports that are grouped into continents, countries, and states. 
 // Translate the object structure into a single hierarchical structure that allows to go from continent 
 // to country to state level to pull out all airports from that area.
 
